@@ -1,4 +1,7 @@
-# Short-Squeeze-US
+# Short-Squeeze-US (SHORT SQUEEZE US)
 
-US short interest + squeeze signal tracker. Step 1: data access probe.
-Secret: SEC_USER_AGENT
+US short interest (FINRA, twice a month) + daily squeeze signals.
+- Page: index.html
+- Data: data/squeeze.json
+- Workflow: Update squeeze data (weekdays 23:30 UTC)
+- Secret: SEC_USER_AGENT

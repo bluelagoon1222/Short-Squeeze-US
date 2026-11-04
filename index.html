@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>SHORT SQUEEZE US — 미국 공매도 잔고·스퀴즈 가능성 순위</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230B2D5B'/><path d='M20 78 L42 56 L54 66 L80 24' fill='none' stroke='%23F37321' stroke-width='10' stroke-linecap='round' stroke-linejoin='round'/><path d='M66 22 L82 22 L82 38' fill='none' stroke='%23F37321' stroke-width='10' stroke-linecap='round'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--orange:#F37321;--orange-soft:#FDE6D5;--orange-ink:#A3460B;--navy:#0B2D5B;--navy-soft:#DCE5F2;--ink:#1B2230;--sub:#5B6475;
+  --line:#E3E6EB;--band:#F4F6F9;--red:#C2410C;--green:#1F7A5A;--font:"Nanum Gothic","Malgun Gothic","Apple SD Gothic Neo",sans-serif}
+*{box-sizing:border-box}
+html,body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:16.5px;line-height:1.55;word-break:keep-all;-webkit-text-size-adjust:100%}
+button,input,select{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+a{color:var(--navy)}
+.wrap{max-width:1360px;margin:0 auto;padding:0 22px}
+header{background:var(--navy);color:#fff;padding:24px 0 20px;border-bottom:4px solid var(--orange)}
+header h1{margin:0;font-size:36px;font-weight:800;letter-spacing:-.3px}
+header h1 .en{font-size:17px;font-weight:700;color:var(--orange);margin-left:8px;vertical-align:5px}
+header p{margin:6px 0 0;color:#C9D6EA;font-size:17px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 20px;margin-top:10px;font-size:14.5px;color:#C9D6EA}
+.meta b{color:#fff}
+.lag{display:flex;gap:10px;align-items:flex-start;border:2px solid var(--orange);background:#FFF6EF;border-radius:10px;padding:12px 16px;margin:18px 0 12px;font-size:15.5px}
+.lag .ic{flex:none;width:22px;height:22px;border-radius:50%;background:var(--orange);color:#fff;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:13px;margin-top:2px}
+.lag b{color:var(--orange-ink)}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;border-bottom:2px solid var(--navy);margin-top:6px}
+.tab{border:1.5px solid var(--line);border-bottom:0;background:var(--band);padding:12px 22px;border-radius:10px 10px 0 0;font-weight:800;cursor:pointer;font-size:18px;color:var(--sub)}
+.tab[aria-selected="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.bar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0 8px}
+.bar .lbl{font-size:16px;font-weight:800;color:var(--navy);min-width:70px}
+.chip{border:1.5px solid #C7CDD6;background:#fff;font-weight:700;font-size:15.5px;padding:8px 15px;border-radius:10px;box-shadow:0 2px 0 #DDE2E9;cursor:pointer}
+.chip:hover{border-color:var(--navy)}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff;box-shadow:0 2px 0 #051A38}
+.search{border:1.5px solid #C7CDD6;border-radius:10px;padding:9px 12px;font-size:16px;width:280px;max-width:100%}
+.note{font-size:13.5px;color:var(--sub);margin:6px 0}
+.empty{padding:28px;text-align:center;color:var(--sub);border:1px dashed var(--line);border-radius:10px}
+.tbl-wrap{overflow:auto;border-top:2px solid var(--navy);margin-top:6px;max-height:74vh}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+th,td{padding:8px 9px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap;font-size:14.5px;vertical-align:middle}
+thead th{position:sticky;top:0;z-index:3;background:var(--band);color:var(--sub);font-size:13px;cursor:pointer;user-select:none;box-shadow:0 1px 0 var(--line)}
+thead th.sorted{color:var(--navy)}
+thead th.sorted::after{content:" ▼";font-size:10px}
+thead th.sorted.asc::after{content:" ▲"}
+th.l,td.l{text-align:left}
+td.fc,th.fc{position:sticky;left:0;z-index:2;background:#fff}
+thead th.fc{z-index:4;background:var(--band)}
+tr.click{cursor:pointer}
+tr.click:hover td{background:#FAFBFD}
+tr.on td{background:#FFF6EF}
+.tk{font-weight:800}
+.sm{display:block;font-size:12px;color:var(--sub);font-weight:400;max-width:180px;overflow:hidden;text-overflow:ellipsis}
+.pos{color:var(--red);font-weight:700}.neg{color:var(--navy);font-weight:700}
+.score{display:inline-flex;align-items:center;gap:6px;font-weight:800}
+.score i{display:inline-block;height:8px;border-radius:3px;background:linear-gradient(90deg,#FDBA74,var(--orange),#C2410C)}
+.bdg{display:inline-block;font-size:11.5px;font-weight:800;border-radius:4px;padding:1px 6px;margin:1px 2px 1px 0;white-space:nowrap}
+.b-ignite{background:#FEE2E2;color:#B91C1C}.b-borrow{background:#FFEDD5;color:#C2410C}.b-covering{background:#DCFCE7;color:#166534}.b-building{background:var(--navy-soft);color:var(--navy)}.b-reddit{background:#EDE9FE;color:#5B21B6}
+.sec{margin:20px 0 6px;font-size:18px;font-weight:800;color:var(--navy)}
+.detail{border:2px solid var(--navy);border-radius:12px;padding:16px 18px;margin:16px 0}
+.detail h2{margin:0;font-size:24px;color:var(--navy)}
+.kv{display:flex;flex-wrap:wrap;gap:6px 20px;margin:8px 0 10px;font-size:14.5px;color:var(--sub)}
+.kv b{color:var(--ink)}
+.charts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.chart{border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.chart h4{margin:0 0 6px;font-size:14.5px}
+.chart svg{width:100%;height:110px;display:block}
+.comp{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px;margin-top:12px}
+.comp div{background:var(--band);border-radius:8px;padding:8px 10px;font-size:13.5px}
+.comp b{display:block;font-size:17px;color:var(--navy)}
+footer{margin-top:40px;padding:20px 0 34px;background:var(--band);font-size:13px;color:var(--sub)}
+@media (max-width:760px){
+  .wrap{padding:0 14px}
+  header h1{font-size:27px}
+  header h1 .en{display:block;margin:2px 0 0;font-size:14px}
+  header p{font-size:15px}
+  .tab{padding:9px 12px;font-size:15.5px}
+  .chip{font-size:14.5px;padding:7px 11px}
+  .charts{grid-template-columns:1fr}
+  .search{width:100%}
+}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+  <h1>SHORT SQUEEZE US <span class="en">(미국 공매도 잔고·스퀴즈 가능성)</span></h1>
+  <p>공매도가 쌓이는 종목과 스퀴즈(공매도 세력의 급한 되사기로 인한 급등) 임박 신호를 매일 점검합니다</p>
+  <div class="meta"><span>데이터 갱신 <b id="gen">—</b></span><span>공매도 잔고 기준일 <b id="sid">—</b></span><span>일별 공매도 거래 <b id="rid">—</b></span><span>출처 <b>FINRA</b> · <b>SEC</b> · <b>Yahoo</b> · <b>ApeWisdom</b></span></div>
+</div></header>
+<main class="wrap" id="app"><div class="empty" style="margin-top:30px">데이터를 불러오는 중입니다.</div></main>
+<footer><div class="wrap">투자 참고용이며 투자 권유가 아닙니다. 공매도 잔고는 FINRA가 월 2회 공개하는 자료로 기준일보다 1~2주 늦게 나옵니다. 스퀴즈 점수는 종목 간 상대 순위이며 급등을 예측하거나 보장하지 않습니다. 시총 대비 비율은 유통주식이 아닌 발행주식 기준이라 실제 유통 대비 비율보다 낮게 나옵니다.</div></footer>
+<script>
+const BADGE = {ignite:["🚀 가격 점화","b-ignite","공매도 비율 15% 이상 + 20일 고점 돌파 + 거래량 2배"], borrow:["🔥 대차 압박","b-borrow","빌릴 주식 고갈 또는 대차 수수료 급등"], covering:["⚡ 상환 진행","b-covering","주가 20% 이상 상승 중 공매도 잔고 15% 이상 감소"], building:["📈 공매도 누적","b-building","공매도 잔고 3회 이상 연속 증가"], reddit:["🗣 Reddit 급증","b-reddit","Reddit 언급 급증 또는 스퀴즈 커뮤니티 언급"]};
+const COMP = {si:"공매도 비율",dtc:"커버 일수",trend:"잔고 증가",flow:"일별 공매도 비중",ignite:"가격 점화",reddit:"Reddit",borrow:"대차 수수료"};
+let D, st = {tab:"rank", mcap:3e8, dv:5e6, sort:{rank:["score",-1], si:["si_pct",-1]}, open:null, jump:false, q:"", limit:100, badge:null};
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const usd = v => v == null ? "—" : v >= 1e9 ? "$" + (v/1e9).toFixed(2) + "B" : v >= 1e6 ? "$" + (v/1e6).toFixed(1) + "M" : "$" + Math.round(v).toLocaleString();
+const pct = (v, d=1, sign=false) => v == null ? "—" : `${sign && v > 0 ? "+" : ""}${(v*100).toFixed(d)}%`;
+const cpct = v => v == null ? "—" : `<span class="${v > 0 ? "pos" : v < 0 ? "neg" : ""}">${pct(v,1,true)}</span>`;
+const num = v => v == null ? "—" : Math.round(v).toLocaleString();
+const badges = r => r.badges.map(b => `<span class="bdg ${BADGE[b][1]}" title="${BADGE[b][2]}">${BADGE[b][0]}</span>`).join("");
+
+fetch("data/squeeze.json?v=" + Date.now()).then(r => { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+  .then(js => { D = js; render(); })
+  .catch(e => { $("#app").innerHTML = `<div class="empty" style="margin-top:30px">데이터 파일을 읽지 못했습니다: ${esc(e.message)}</div>`; });
+
+const pool = () => D.rows.filter(r => (st.mcap === 0 || (r.mcap ?? 0) >= st.mcap) && (r.dv ?? 0) >= st.dv);
+
+function render(){
+  if (D.status !== "ok"){ $("#app").innerHTML = '<div class="empty" style="margin-top:30px">첫 데이터 수집 전입니다.</div>'; return; }
+  $("#gen").textContent = new Date(D.generated_at).toLocaleString("ko-KR",{timeZone:"Asia/Seoul",year:"numeric",month:"2-digit",day:"2-digit",hour:"2-digit",minute:"2-digit"}) + " (KST)";
+  $("#sid").textContent = D.si_date; $("#rid").textContent = D.regsho_date || "—";
+  $("#app").innerHTML = `
+    <div class="lag" role="note"><span class="ic">!</span><div><b>공매도 잔고는 월 2회(기준일 ${D.si_date})만 공개</b>되고, 매일 바뀌는 것은 주가·거래량·일별 공매도 거래 비중·Reddit 언급${D.borrow ? "·대차 수수료" : ""}입니다. 스퀴즈 점수는 이를 합친 <b>상대 순위(0~100)</b>입니다.${D.borrow ? "" : " (대차 수수료 자료는 현재 미수집)"}</div></div>
+    <div class="tabs" role="tablist">${[["rank","① 스퀴즈 순위"],["si","② 공매도 잔고"],["today","③ 오늘의 신호"],["search","④ 종목 검색"]].map(([k,t]) => `<button class="tab" role="tab" aria-selected="${st.tab===k}" data-t="${k}">${t}</button>`).join("")}</div>
+    <div class="bar"><span class="lbl">시가총액</span>${[[0,"전체"],[5e7,"5천만$↑"],[3e8,"3억$↑"],[2e9,"20억$↑"],[1e10,"100억$↑"]].map(([v,t]) => `<button class="chip" aria-pressed="${st.mcap===v}" data-m="${v}">${t}</button>`).join("")}</div>
+    <div class="bar"><span class="lbl">거래대금</span>${[[0,"제한 없음"],[1e6,"일 100만$↑"],[5e6,"일 500만$↑"],[2e7,"일 2천만$↑"]].map(([v,t]) => `<button class="chip" aria-pressed="${st.dv===v}" data-v="${v}">${t}</button>`).join("")}<span class="note">소형·저유동성 종목은 점수가 과대해지기 쉬워 기본 필터를 적용합니다</span></div>
+    <div id="pane"></div>`;
+  document.querySelectorAll(".tab").forEach(b => b.onclick = () => { st.tab = b.dataset.t; st.limit = 100; render(); });
+  document.querySelectorAll("[data-m]").forEach(b => b.onclick = () => { st.mcap = +b.dataset.m; render(); });
+  document.querySelectorAll("[data-v]").forEach(b => b.onclick = () => { st.dv = +b.dataset.v; render(); });
+  ({rank:renderRank, si:renderSI, today:renderToday, search:renderSearch})[st.tab]();
+}
+
+/* ---------- generic sortable table ---------- */
+function table(key, rows, cols, opts={}){
+  const [sk, sd] = st.sort[key];
+  const col = cols.find(c => c.k === sk) || cols[0];
+  const sorted = rows.slice().sort((a,b) => { const x = col.v(a), y = col.v(b); return (x == null) - (y == null) || (x < y ? -1 : x > y ? 1 : 0) * sd; });
+  const shown = sorted.slice(0, st.limit);
+  return `<div class="tbl-wrap"><table><thead><tr>${cols.map(c => `<th class="${c.l ? "l" : ""}${c.fc ? " fc" : ""}${c.k === sk ? " sorted" + (sd > 0 ? " asc" : "") : ""}" data-sort="${key}:${c.k}" title="${esc(c.tip || "누르면 정렬")}">${c.h}</th>`).join("")}</tr></thead><tbody>` +
+    shown.map((r,i) => `<tr class="click${st.open === r.s ? " on" : ""}" data-s="${r.s}">${cols.map(c => `<td class="${c.l ? "l" : ""}${c.fc ? " fc" : ""}">${c.f(r, i)}</td>`).join("")}</tr>`).join("") +
+    `</tbody></table></div>${sorted.length > st.limit ? `<div style="text-align:center;margin:10px"><button class="chip" id="more">더 보기 (${sorted.length - st.limit}개 남음)</button></div>` : ""}<div id="detail"></div>`;
+}
+function bindTable(fn){
+  document.querySelectorAll("[data-sort]").forEach(th => th.onclick = () => { const [key, k] = th.dataset.sort.split(":"); const cur = st.sort[key]; st.sort[key] = [k, cur[0] === k ? -cur[1] : -1]; fn(); });
+  document.querySelectorAll("tr[data-s]").forEach(tr => tr.onclick = () => { st.open = st.open === tr.dataset.s ? null : tr.dataset.s; st.jump = !!st.open; fn(); });
+  const m = $("#more"); if (m) m.onclick = () => { st.limit += 100; fn(); };
+  if (st.open){ const r = D.rows.find(x => x.s === st.open); if (r && $("#detail")){ renderDetail(r); if (st.jump){ $("#detail").scrollIntoView({behavior:"smooth", block:"start"}); st.jump = false; } } }
+}
+const NAME = {k:"s", h:"종목", l:true, fc:true, v:r => r.s, f:r => `<span class="tk">${r.s}</span><span class="sm">${esc(r.n)}</span>`};
+
+/* ---------- ① squeeze ranking ---------- */
+function renderRank(){
+  const rows = pool().filter(r => !st.badge || r.badges.includes(st.badge));
+  const cols = [
+    {k:"i", h:"#", l:true, v:r => -r.score, f:(r,i) => i+1},
+    NAME,
+    {k:"score", h:"스퀴즈 점수", v:r => r.score, f:r => `<span class="score">${r.score.toFixed(0)}<i style="width:${Math.round(r.score*0.6)}px"></i></span>`},
+    {k:"badges", h:"신호", l:true, v:r => r.badges.length, f:r => badges(r)},
+    {k:"si_pct", h:"시총 대비 공매도", v:r => r.si_pct, f:r => pct(r.si_pct)},
+    {k:"si_val", h:"공매도 금액", v:r => r.si_val, f:r => usd(r.si_val)},
+    {k:"dtc", h:"커버 일수", v:r => r.dtc, f:r => r.dtc == null ? "—" : r.dtc.toFixed(1)},
+    {k:"si_chg", h:"잔고 증감", v:r => r.si_chg, f:r => cpct(r.si_chg)},
+    {k:"r5", h:"5일 수익률", v:r => r.r5, f:r => cpct(r.r5)},
+    {k:"vr", h:"거래량 배율", v:r => r.vr, f:r => r.vr == null ? "—" : r.vr.toFixed(1) + "배"},
+    {k:"sv5", h:"공매도 거래 비중(5일)", v:r => r.sv5, f:r => pct(r.sv5,0)},
+    ...(D.borrow ? [{k:"fee", h:"대차 수수료", v:r => r.b?.fee, f:r => r.b?.fee == null ? "—" : r.b.fee.toFixed(1) + "%"}] : []),
+    {k:"rd", h:"Reddit", v:r => (r.rd || 0) + 2 * (r.rdsq || 0), f:r => r.rd || r.rdsq ? `${r.rd || 0}${r.rdsq ? ` <span class="sm" style="display:inline">· 스퀴즈방 ${r.rdsq}</span>` : ""}` : "—"},
+    {k:"mcap", h:"시가총액", v:r => r.mcap, f:r => usd(r.mcap)},
+  ];
+  $("#pane").innerHTML = `<div class="bar"><span class="lbl">신호</span><button class="chip" aria-pressed="${!st.badge}" data-b="">전체</button>${Object.entries(BADGE).filter(([k]) => k !== "borrow" || D.borrow).map(([k,v]) => `<button class="chip" aria-pressed="${st.badge===k}" data-b="${k}" title="${v[2]}">${v[0]} ${pool().filter(r => r.badges.includes(k)).length}</button>`).join("")}<span class="note">${rows.length}개 종목 · 머리글을 누르면 정렬 · 행을 누르면 상세</span></div>` + table("rank", rows, cols);
+  document.querySelectorAll("[data-b]").forEach(b => b.onclick = () => { st.badge = b.dataset.b || null; renderRank(); });
+  bindTable(renderRank);
+}
+
+/* ---------- ② short interest ---------- */
+function spark(vals, w=90, h=24, color="#0B2D5B"){
+  const v = vals.map(x => x ?? null).filter(x => x != null); if (v.length < 2) return "";
+  const mn = Math.min(...v), mx = Math.max(...v), rg = mx - mn || 1;
+  const pts = v.map((x,i) => `${(i/(v.length-1)*w).toFixed(1)},${(h - (x-mn)/rg*(h-4) - 2).toFixed(1)}`).join(" ");
+  return `<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2"/></svg>`;
+}
+function renderSI(){
+  const rows = pool();
+  const cols = [
+    NAME,
+    {k:"si_pct", h:"시총 대비 공매도", tip:"공매도 잔고 ÷ 발행주식", v:r => r.si_pct, f:r => `<b>${pct(r.si_pct)}</b>`},
+    {k:"si_val", h:"공매도 금액", tip:"잔고 × 최근 주가", v:r => r.si_val, f:r => usd(r.si_val)},
+    {k:"si", h:"공매도 주식 수", v:r => r.si, f:r => num(r.si)},
+    {k:"si_chg", h:"직전 대비", v:r => r.si_chg, f:r => cpct(r.si_chg)},
+    {k:"consec", h:"연속 증가", v:r => r.consec, f:r => r.consec ? r.consec + "회" : "—"},
+    {k:"hist", h:`잔고 추이 (${D.si_dates[0].slice(5)}~${D.si_dates.at(-1).slice(5)})`, v:r => r.si_chg, f:r => spark(r.si_hist)},
+    {k:"dtc", h:"커버 일수", v:r => r.dtc, f:r => r.dtc == null ? "—" : r.dtc.toFixed(1)},
+    {k:"sv1", h:"어제 공매도 거래 비중", v:r => r.sv1, f:r => pct(r.sv1,0)},
+    {k:"mcap", h:"시가총액", v:r => r.mcap, f:r => usd(r.mcap)},
+    {k:"p", h:"주가", v:r => r.p, f:r => "$" + r.p.toFixed(2)},
+  ];
+  $("#pane").innerHTML = `<p class="note" style="margin-top:12px">FINRA 공매도 잔고 기준일 <b>${D.si_date}</b> (직전 ${D.si_dates.at(-2) || "—"}) · 공매도 금액은 최근 주가로 환산 · ${rows.length}개 종목</p>` + table("si", rows, cols);
+  bindTable(renderSI);
+}
+
+/* ---------- ③ today's signals ---------- */
+function renderToday(){
+  const rows = pool();
+  const blocks = [
+    ["🚀 가격 점화", "공매도 비율 높은 종목의 20일 고점 돌파·거래량 급증", rows.filter(r => r.badges.includes("ignite")), r => `20일 고점 돌파 · 거래량 ${r.vr?.toFixed(1)}배 · 5일 ${pct(r.r5,1,true)}`],
+    ["⚡ 상환 진행", "주가 상승과 함께 공매도 잔고 감소 (스퀴즈 진행 중일 수 있음)", rows.filter(r => r.badges.includes("covering")), r => `잔고 ${pct(r.si_chg,1,true)} · 20일 ${pct(r.r20,1,true)}`],
+    ["📊 공매도 거래 비중 급등", "어제 공매도 거래 비중이 20일 평균보다 15%p 이상 높음", rows.filter(r => r.sv1 != null && r.sv20 != null && r.sv1 - r.sv20 >= 0.15 && r.sv1 >= 0.5).sort((a,b) => (b.sv1-b.sv20)-(a.sv1-a.sv20)), r => `어제 ${pct(r.sv1,0)} (20일 평균 ${pct(r.sv20,0)})`],
+    ["🗣 Reddit 급증", "Reddit 전체 언급 3배 이상 증가 또는 스퀴즈 커뮤니티 언급", rows.filter(r => r.badges.includes("reddit")), r => `언급 ${r.rd || 0} (전일 ${r.rd24 || 0}) · 스퀴즈방 ${r.rdsq || 0}`],
+    ...(D.borrow ? [["🔥 대차 압박", "빌릴 주식 고갈 또는 대차 수수료 급등", rows.filter(r => r.badges.includes("borrow")), r => `수수료 ${r.b?.fee?.toFixed(1)}% · 가능 ${num(r.b?.avail)}주`]] : []),
+  ];
+  $("#pane").innerHTML = blocks.map(([t, d, list, f]) => `<div class="sec">${t} <span class="note">${list.length}개 · ${d}</span></div>` +
+    (list.length ? `<div class="tbl-wrap" style="max-height:none"><table><tbody>${list.slice(0, 20).map(r => `<tr class="click" data-s="${r.s}"><td class="l" style="width:200px"><span class="tk">${r.s}</span><span class="sm">${esc(r.n)}</span></td><td class="l">${f(r)}</td><td>시총 대비 공매도 <b>${pct(r.si_pct)}</b></td><td>점수 <b>${r.score.toFixed(0)}</b></td></tr>`).join("")}</tbody></table></div>` : '<div class="empty">해당 종목이 없습니다.</div>')).join("") + `<div id="detail"></div>`;
+  bindTable(renderToday);
+}
+
+/* ---------- ④ search ---------- */
+function renderSearch(){
+  $("#pane").innerHTML = `<div class="bar"><span class="lbl">종목</span><input class="search" id="q" placeholder="티커 또는 회사명 (예: GME)" value="${esc(st.q)}"><span class="note">필터와 관계없이 전체에서 검색</span></div><div id="res"></div>`;
+  const run = () => {
+    const q = st.q.trim().toUpperCase();
+    const list = q.length < 1 ? [] : D.rows.filter(r => r.s === q || r.s.startsWith(q) || r.n.toUpperCase().includes(q)).slice(0, 30);
+    $("#res").innerHTML = list.length ? `<div class="tbl-wrap" style="max-height:none"><table><tbody>${list.map(r => `<tr class="click${st.open === r.s ? " on" : ""}" data-s="${r.s}"><td class="l"><span class="tk">${r.s}</span><span class="sm">${esc(r.n)}</span></td><td>점수 <b>${r.score.toFixed(0)}</b></td><td>시총 대비 공매도 <b>${pct(r.si_pct)}</b></td><td>${usd(r.si_val)}</td><td class="l">${badges(r)}</td></tr>`).join("")}</tbody></table></div><div id="detail"></div>` : `<div class="empty">${q ? "목록에 없는 종목입니다 (공매도 잔고 20만 주 미만·주가 1달러 미만·시총 5천만 달러 미만 제외)." : "티커를 입력하세요."}</div>`;
+    bindTable(run);
+  };
+  $("#q").addEventListener("input", e => { st.q = e.target.value; run(); });
+  run();
+}
+
+/* ---------- detail ---------- */
+function line(vals, color, fmt, labels){
+  const v = vals.filter(x => x != null); if (v.length < 2) return '<p class="note">자료 부족</p>';
+  const W = 300, H = 110, mn = Math.min(...v), mx = Math.max(...v), rg = mx - mn || 1;
+  const pts = v.map((x,i) => `${(i/(v.length-1)*W).toFixed(1)},${(H - 14 - (x-mn)/rg*(H-28)).toFixed(1)}`).join(" ");
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="${color}" stroke-width="2.4"/><text x="2" y="11" font-size="11" fill="#5B6475">${fmt(mx)}</text><text x="2" y="${H-2}" font-size="11" fill="#5B6475">${fmt(mn)}</text>${labels ? `<text x="${W-2}" y="${H-2}" font-size="11" fill="#5B6475" text-anchor="end">${labels}</text>` : ""}</svg>`;
+}
+function renderDetail(r){
+  $("#detail").innerHTML = `<div class="detail"><h2>${r.s} <span class="note">${esc(r.n)} · ${esc(r.x)}</span></h2>
+    <div class="kv"><span>스퀴즈 점수 <b>${r.score.toFixed(0)}</b></span><span>주가 <b>$${r.p.toFixed(2)}</b> (5일 ${pct(r.r5,1,true)} · 20일 ${pct(r.r20,1,true)})</span><span>시가총액 <b>${usd(r.mcap)}</b></span><span>공매도 잔고 <b>${num(r.si)}주</b> (${D.si_date})</span><span>시총 대비 <b>${pct(r.si_pct)}</b></span><span>커버 일수 <b>${r.dtc?.toFixed(1) ?? "—"}</b></span>${r.b ? `<span>대차 수수료 <b>${r.b.fee?.toFixed(1)}%</b> · 대차 가능 <b>${num(r.b.avail)}주</b></span>` : ""}</div>
+    <div>${badges(r) || '<span class="note">현재 특별 신호 없음</span>'}</div>
+    <div class="charts" style="margin-top:12px">
+      <div class="chart"><h4>공매도 잔고 추이 (월 2회)</h4>${line(r.si_hist, "#0B2D5B", v => (v/1e6).toFixed(1) + "M", D.si_dates[0].slice(5) + " → " + D.si_dates.at(-1).slice(5))}</div>
+      <div class="chart"><h4>일별 공매도 거래 비중 (최근 ${r.sv_series.length}일)</h4>${line(r.sv_series, "#F37321", v => Math.round(v*100) + "%")}</div>
+      <div class="chart"><h4>주가 (최근 ${r.spark.length}일)</h4>${line(r.spark, "#C2410C", v => "$" + v.toFixed(2))}</div>
+    </div>
+    <div class="comp">${Object.entries(r.comp).filter(([k]) => k !== "borrow" || D.borrow).map(([k,v]) => `<div>${COMP[k]}<b>${v.toFixed(1)}</b></div>`).join("")}</div>
+    <p class="note">점수 구성: 공매도 비율 30 · 커버 일수 15 · 잔고 증가 10 · 일별 공매도 비중 5 · 가격 점화 25 · Reddit 5${D.borrow ? " · 대차 수수료 10" : " (대차 수수료 미수집 → 나머지 항목을 100점으로 환산)"}. 각 항목은 전체 종목 중 상대 순위(백분위)로 계산합니다.</p></div>`;
+}
+</script>
+</body>
+</html>
