@@ -1,1 +1,193 @@
-{"status":"not run yet"}
+{
+ "run_at_utc": "2026-11-04T00:01:57",
+ "checks": [
+  {
+   "url": "https://cdn.finra.org/equity/regsho/daily/CNMSshvol20261103.txt",
+   "status": 200,
+   "lines": 12296,
+   "sample": "Date|Symbol|ShortVolume|ShortExemptVolume|TotalVolume|Market\r\n20261103|A|485817.994309|656|1039523.314196|B,Q,N\r\n20261103|AA|558233.528076|2641|1030479.576547|B,Q,N\r\n20261103|AAA|421|0|13997.219529|Q\r\n20261103|AAAA|197783|0|237325.664000|Q,N\r\n20261103|AAAB|6|0|7.119000|Q\r\n20261103|AAAC|10|0|13|Q\r\n20261103|AAAD|15|0|15|Q\r\n20261103|AAAP|13551.608392|0|15303.608392|Q\r\n20261103|AAAU|189805.884242|0|252643.812932|B,Q,N\r\n20261103|AAC|3|0|6|N\r\n20261103|AACG|196|0|1118|Q\r\n20261103|AACI|20001|0|20006.010",
+   "name": "finra_regsho_daily",
+   "ok": true
+  },
+  {
+   "status": 400,
+   "sample": "{\"statusCode\":400,\"statusDescription\":\"Bad Request\",\"requestId\":\"eb5d2cfd-0c1f-4185-aba7-6b81afbf35cb\",\"message\":\"Sorting is allowed only if all partitions keys are specified in EQUAL CompareFilter.Partition keys missing or not using EQUAL CompareFilter: settlementDate\",\"dataRequest\":{\"async\":false,\"offset\":0,\"dataVersion\":1,\"datasetName\":\"consolidatedshortinterest\",\"format\":\"application/json\",\"limit\":5,\"datasetGroup\":\"otcmarket\",\"versionedDatasetName\":\"consolidatedshortinterest\",\"sortFields\":[\"-settlementDate\"]}}",
+   "name": "finra_api_short_interest_post",
+   "ok": false
+  },
+  {
+   "status": 200,
+   "sample": "[{\"stockSplitFlag\":null,\"previousShortPositionQuantity\":4767556,\"averageDailyVolumeQuantity\":2012318,\"issueName\":\"Agilent Technologies Inc.\",\"currentShortPositionQuantity\":4851353,\"changePreviousNumber\":83797,\"accountingYearMonthNumber\":20200415,\"settlementDate\":\"2020-04-15\",\"marketClassCode\":\"NYSE\",\"symbolCode\":\"A\",\"daysToCoverQuantity\":2.41,\"issuerServicesGroupExchangeCode\":\"A\",\"revisionFlag\":null,\"changePercent\":1.76},{\"stockSplitFlag\":null,\"previousShortPositionQuantity\":9476203,\"averageDailyVolumeQuantity\":9564290,\"issueName\":\"Alcoa Corporation\",\"currentShortPositionQuantity\":10624431,\"changePreviousNumber\":1148228,\"accountingYearMonthNumber\":20200415,\"settlementDate\":\"2020-04-15\",\"marketClassCode\":\"NYSE\",\"symbolCode\":\"AA\",\"daysToCoverQuantity\":1.11,\"issuerServicesGroupExchangeCode\":\"A\",\"revisionFlag\":null,\"changePercent\":12.12},{\"stockSplitFlag\":null,\"previousShortPositionQuantity\"",
+   "name": "finra_api_short_interest_get",
+   "ok": true
+  },
+  {
+   "url": "https://cdn.finra.org/equity/otcmarket/biweekly/shrt20261015.csv",
+   "status": 200,
+   "bytes": 2743335,
+   "sample": "\"accountingYearMonthNumber\"|\"symbolCode\"|\"issueName\"|\"issuerServicesGroupExchangeCode\"|\"marketClassCode\"|\"currentShortPositionQuantity\"|\"previousShortPositionQuantity\"|\"stockSplitFlag\"|\"averageDailyVolumeQuantity\"|\"daysToCoverQuantity\"|\"revisionFlag\"|\"changePercent\"|\"changePreviousNumber\"|\"settlementDate\"\n\"20261015\"|\"A\"|\"Agilent Technologies Inc.\"|\"A\"|\"NYSE\"|\"5025670\"|\"5240309\"||\"2076655\"|\"2.42\"||",
+   "name": "finra_cdn_short_interest",
+   "ok": true
+  },
+  {
+   "url": "https://cdn.finra.org/equity/otcmarket/biweekly/shrt20261015.txt",
+   "status": 403,
+   "bytes": 111,
+   "sample": "",
+   "name": "finra_cdn_short_interest",
+   "ok": false
+  },
+  {
+   "url": "https://cdn.finra.org/equity/otcmarket/biweekly/shrt20260930.csv",
+   "status": 200,
+   "bytes": 2748711,
+   "sample": "\"accountingYearMonthNumber\"|\"symbolCode\"|\"issueName\"|\"issuerServicesGroupExchangeCode\"|\"marketClassCode\"|\"currentShortPositionQuantity\"|\"previousShortPositionQuantity\"|\"stockSplitFlag\"|\"averageDailyVolumeQuantity\"|\"daysToCoverQuantity\"|\"revisionFlag\"|\"changePercent\"|\"changePreviousNumber\"|\"settlementDate\"\n\"20260930\"|\"A\"|\"Agilent Technologies Inc.\"|\"A\"|\"NYSE\"|\"5240309\"|\"5078629\"||\"2950874\"|\"1.78\"||",
+   "name": "finra_cdn_short_interest",
+   "ok": true
+  },
+  {
+   "url": "https://cdn.finra.org/equity/otcmarket/biweekly/shrt20260930.txt",
+   "status": 403,
+   "bytes": 111,
+   "sample": "",
+   "name": "finra_cdn_short_interest",
+   "ok": false
+  },
+  {
+   "url": "https://cdn.finra.org/equity/otcmarket/biweekly/shrt20260915.csv",
+   "status": 200,
+   "bytes": 2747640,
+   "sample": "\"accountingYearMonthNumber\"|\"symbolCode\"|\"issueName\"|\"issuerServicesGroupExchangeCode\"|\"marketClassCode\"|\"currentShortPositionQuantity\"|\"previousShortPositionQuantity\"|\"stockSplitFlag\"|\"averageDailyVolumeQuantity\"|\"daysToCoverQuantity\"|\"revisionFlag\"|\"changePercent\"|\"changePreviousNumber\"|\"settlementDate\"\n\"20260915\"|\"A\"|\"Agilent Technologies Inc.\"|\"A\"|\"NYSE\"|\"5078629\"|\"5677007\"||\"2001064\"|\"2.54\"||",
+   "name": "finra_cdn_short_interest",
+   "ok": true
+  },
+  {
+   "url": "https://cdn.finra.org/equity/otcmarket/biweekly/shrt20260915.txt",
+   "status": 403,
+   "bytes": 111,
+   "sample": "",
+   "name": "finra_cdn_short_interest",
+   "ok": false
+  },
+  {
+   "status": 200,
+   "sample": "{\"data\":null,\"message\":\"Short interest is not available. Short interest is only supported for Nasdaq Listed stocks\",\"status\":{\"rCode\":200,\"bCodeMessage\":null,\"developerMessage\":null}}",
+   "name": "nasdaq_short_interest_GME",
+   "ok": false
+  },
+  {
+   "error": "timed out",
+   "name": "ibkr_ftp_usa",
+   "ok": false
+  },
+  {
+   "url": "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202611a.zip",
+   "status": 404,
+   "bytes": 53435,
+   "sample": "",
+   "name": "sec_ftd",
+   "ok": false
+  },
+  {
+   "url": "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202611b.zip",
+   "status": 404,
+   "bytes": 53435,
+   "sample": "",
+   "name": "sec_ftd",
+   "ok": false
+  },
+  {
+   "url": "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202610a.zip",
+   "status": 404,
+   "bytes": 53435,
+   "sample": "",
+   "name": "sec_ftd",
+   "ok": false
+  },
+  {
+   "url": "https://www.sec.gov/files/data/fails-deliver-data/cnsfails202610b.zip",
+   "status": 404,
+   "bytes": 53435,
+   "sample": "",
+   "name": "sec_ftd",
+   "ok": false
+  },
+  {
+   "url": "https://data.sec.gov/api/xbrl/frames/dei/EntityCommonStockSharesOutstanding/shares/CY2026Q3I.json",
+   "status": 200,
+   "companies": 1631,
+   "sample": "{\"taxonomy\":\"dei\",\"tag\":\"EntityCommonStockSharesOutstanding\",\"ccp\":\"CY2026Q3I\",\"uom\":\"shares\",\"label\":\"Entity Common Stock, Shares Outstanding\",\"description\":\"Indicate number of shares or other units outstanding of each of registrant's classes of capital or common stock or other ownership interests,",
+   "name": "sec_frames_shares_out",
+   "ok": true
+  },
+  {
+   "url": "https://data.sec.gov/api/xbrl/frames/dei/EntityCommonStockSharesOutstanding/shares/CY2026Q2I.json",
+   "status": 200,
+   "companies": 4452,
+   "sample": "{\"taxonomy\":\"dei\",\"tag\":\"EntityCommonStockSharesOutstanding\",\"ccp\":\"CY2026Q2I\",\"uom\":\"shares\",\"label\":\"Entity Common Stock, Shares Outstanding\",\"description\":\"Indicate number of shares or other units outstanding of each of registrant's classes of capital or common stock or other ownership interests,",
+   "name": "sec_frames_shares_out",
+   "ok": true
+  },
+  {
+   "status": 200,
+   "bytes": 796562,
+   "name": "sec_company_tickers",
+   "ok": true
+  },
+  {
+   "url": "https://www.nasdaqtrader.com/dynamic/SymDir/nasdaqlisted.txt",
+   "status": 200,
+   "lines": 5610,
+   "sample": "Symbol|Security Name|Market Category|Test Issue|Financial Status|Round Lot Size|ETF|NextShares\r\nAAAP|Pacer Barings CLO Market Flex ETF|G|N|N|100|Y|N\r\nAACG|ATA Creativity Global - American Depositary S",
+   "name": "symdir",
+   "ok": true
+  },
+  {
+   "url": "https://www.nasdaqtrader.com/dynamic/SymDir/otherlisted.txt",
+   "status": 200,
+   "lines": 7670,
+   "sample": "ACT Symbol|Security Name|Exchange|CQS Symbol|ETF|Round Lot Size|Test Issue|NASDAQ Symbol\r\nA|Agilent Technologies, Inc. Common Stock|N|A|N|100|N|A\r\nAA|Alcoa Corporation Common Stock |N|AA|N|100|N|AA\r\nA",
+   "name": "symdir",
+   "ok": true
+  },
+  {
+   "status": 200,
+   "name": "yahoo_chart",
+   "ok": true
+  },
+  {
+   "url": "https://apewisdom.io/api/v1.0/filter/all-stocks/page/1",
+   "status": 200,
+   "sample": "{\"count\":654,\"pages\":7,\"current_page\":1,\"results\":[{\"rank\":1,\"ticker\":\"AMD\",\"name\":\"AMD\",\"mentions\":339,\"upvotes\":4307,\"rank_24h_ago\":5,\"mentions_24h_ago\":96},{\"rank\":2,\"ticker\":\"MU\",\"name\":\"Micron Technology\",\"mentions\":84,\"upvotes\":260,\"rank_24h_ago\":3,\"mentions_24h_ago\":108},{\"rank\":3,\"ticker\":\"Q",
+   "name": "apewisdom_all-stocks",
+   "ok": true
+  },
+  {
+   "url": "https://apewisdom.io/api/v1.0/filter/Shortsqueeze/page/1",
+   "status": 200,
+   "sample": "{\"count\":39,\"pages\":1,\"current_page\":1,\"results\":[{\"rank\":1,\"ticker\":\"HTZ\",\"name\":\"Hertz\",\"mentions\":1,\"upvotes\":1,\"rank_24h_ago\":10,\"mentions_24h_ago\":null},{\"rank\":2,\"ticker\":\"VTI\",\"name\":\"Vanguard Total Stock Market ETF\",\"mentions\":1,\"upvotes\":8,\"rank_24h_ago\":2,\"mentions_24h_ago\":null},{\"rank\":3",
+   "name": "apewisdom_Shortsqueeze",
+   "ok": true
+  },
+  {
+   "url": "https://apewisdom.io/api/v1.0/filter/shortsqueeze/page/1",
+   "status": 200,
+   "sample": "{\"count\":39,\"pages\":1,\"current_page\":1,\"results\":[{\"rank\":1,\"ticker\":\"HTZ\",\"name\":\"Hertz\",\"mentions\":1,\"upvotes\":1,\"rank_24h_ago\":10,\"mentions_24h_ago\":null},{\"rank\":2,\"ticker\":\"VTI\",\"name\":\"Vanguard Total Stock Market ETF\",\"mentions\":1,\"upvotes\":8,\"rank_24h_ago\":2,\"mentions_24h_ago\":null},{\"rank\":3",
+   "name": "apewisdom_shortsqueeze",
+   "ok": true
+  },
+  {
+   "url": "https://apewisdom.io/api/v1.0/filter/SqueezePlays/page/1",
+   "status": 200,
+   "sample": "{\"count\":26,\"pages\":1,\"current_page\":1,\"results\":[{\"rank\":1,\"ticker\":\"VOO\",\"name\":\"Vanguard S&amp;P 500 ETF\",\"mentions\":1,\"upvotes\":1,\"rank_24h_ago\":6,\"mentions_24h_ago\":null},{\"rank\":2,\"ticker\":\"SNDK\",\"name\":\"Sandisk\",\"mentions\":1,\"upvotes\":1,\"rank_24h_ago\":13,\"mentions_24h_ago\":null},{\"rank\":3,\"ti",
+   "name": "apewisdom_SqueezePlays",
+   "ok": true
+  },
+  {
+   "status": 200,
+   "sample": "[]",
+   "name": "apewisdom_filters",
+   "ok": true
+  }
+ ]
+}
